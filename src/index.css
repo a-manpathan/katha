@@ -1,0 +1,124 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
+/* Custom CSS Variables for Theme */
+:root {
+  --parchment-50: #fefcf3;
+  --parchment-100: #fef7e6;
+  --parchment-200: #fdecc8;
+  --amber-800: #92400e;
+  --amber-900: #78350f;
+  --text-primary: #451a03;
+  --text-secondary: #92400e;
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Crimson Text', 'Noto Sans Devanagari', Georgia, serif;
+  background: linear-gradient(135deg, var(--parchment-50) 0%, #fef3c7 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* App Container */
+.katha-app {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Typography Enhancements */
+.font-serif {
+  font-family: 'Crimson Text', 'Noto Sans Devanagari', Georgia, serif;
+}
+
+/* Accessibility Improvements */
+*:focus {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+/* Custom Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.slide-in-from-top-2 {
+  animation: slideInFromTop 0.3s ease-out;
+}
+
+/* Improved Button Interactions */
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Enhanced Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--parchment-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--amber-800);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--amber-900);
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --amber-800: #000000;
+    --amber-900: #000000;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
