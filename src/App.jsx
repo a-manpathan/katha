@@ -34,7 +34,7 @@ function App() {
     setIsLoading(true);
     
     try {
-      const response = await axios.post('http://localhost:8000/api/story/generate', {
+      const response = await axios.post('https://katha-b.onrender.com/api/story/generate', {
         prompt,
         choice,
         history: storyHistory,
@@ -57,7 +57,7 @@ function App() {
       // Generate audio narration
       if (response.data.storySegment) {
         try {
-          const audioResponse = await axios.post('http://localhost:8000/api/audio/narrate', {
+          const audioResponse = await axios.post('https://katha-b.onrender.com/api/audio/narrate', {
             text: response.data.storySegment,
             voice: selectedVoice,
             language: selectedLanguage
@@ -94,7 +94,7 @@ function App() {
       // Use collected audio URLs for stitching
       if (audioUrls.length > 0) {
         try {
-          const stitchResponse = await axios.post('http://localhost:8000/api/audio/stitch', {
+          const stitchResponse = await axios.post('https://katha-b.onrender.com/api/audio/stitch', {
             audioUrls: audioUrls
           });
           
